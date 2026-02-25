@@ -11,8 +11,8 @@ Don't forget that you must also fill out an evaluation form in Moodle to conside
 
 ## Grading
 
-(STUDENT NUMBER HERE) (STUDENT NAME HERE) (STUDENT EMAIL HERE)
-(STUDENT NUMBER HERE) (STUDENT NAME HERE) (STUDENT EMAIL HERE)
+(802-25-8760) (Marcos Rivas Bonilla) (marcos.rivas@upr.edu)
+(802-25-9412) (Gustavo Roman Hernandez) (gustavo.roman5@upr.edu)
 
 Any project that doesn't compile will receive a 0.
 
