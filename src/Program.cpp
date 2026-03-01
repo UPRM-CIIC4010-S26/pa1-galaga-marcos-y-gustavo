@@ -72,6 +72,10 @@ void Program::Update() {
 
 void Program::Draw() {
     background.Draw();
+    
+    std::string s = "Score: " + std::to_string(score);
+    DrawText(s.c_str(), 10, 10, 24, WHITE);
+
     if (pauseFrames <= 0 && !gameOver) player->draw();
     for (Animation& a : Animation::animations) a.draw();
 
@@ -156,6 +160,9 @@ void Program::KeyInputs() {
     if (!paused && !startup && IsKeyPressed('O')) gameOver = !gameOver;
     if (!gameOver && !paused && IsKeyPressed('I')) startup = !startup;
     if (IsKeyPressed('H')) HitBox::drawHitbox = !HitBox::drawHitbox;
+    if (!startup && !paused && !gameOver && IsKeyPressed('K')) {
+    score += 500;
+}
     
     if (gameOver && IsKeyPressed(KEY_ENTER)) {
         gameOver = false;
@@ -191,4 +198,6 @@ void Program::Reset() {
     count = 0;
     delay = 0;
     lives = 3;
+    score = 0;
+    nextLifeScore = 1000;
 }
