@@ -39,7 +39,10 @@ void Program::Update() {
         StdEnemy::attackReset();
         ManageEnemyRespawns();
         player->update();
-
+        while (score >= nextLifeScore && lives < 5) {
+            lives++;
+            nextLifeScore += 1000;
+        }
         for (std::pair<std::pair<float, float>, Enemy*> p : Enemy::enemies) {
             if (p.second && HitBox::Collision(player->hitBox, p.second->hitBox)) {
                 Animation::animations.push_back(
@@ -198,6 +201,7 @@ void Program::Reset() {
     count = 0;
     delay = 0;
     lives = 3;
+    Program();
     score = 0;
     nextLifeScore = 1000;
 }
