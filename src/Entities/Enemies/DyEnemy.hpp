@@ -10,7 +10,8 @@ class DyEnemy : public Enemy {
     public:
         DyEnemy(float x, float y) : Enemy(x, y) { 
             this->cooldown = GetRandomValue(90, 300);
-            this->health = 1; 
+            this->health = 1;
+            this->scoreValue = 150; 
         }
 
         void draw() override;
