@@ -9,6 +9,7 @@
 #include "SpEnemy.hpp"
 #include "StEnemy.hpp"
 #include "DyEnemy.hpp"
+#include "BonusEnemy.hpp"
 class Program {
     private:
         Background background = Background();
