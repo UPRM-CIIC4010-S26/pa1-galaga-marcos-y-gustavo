@@ -3,8 +3,8 @@
 void BonusEnemy::draw() {
     if (HitBox::drawHitbox) this->hitBox.draw();
     DrawTexturePro(ImageManager::SpriteSheet, textureSource, 
-            Rectangle{this->position.first + 15, this->position.second + 15, 30, 30}, 
-            Vector2{15, 15}, this->aimAngle, WHITE);
+            Rectangle{this->position.first, this->position.second, 26, 32}, 
+            Vector2{13, 16}, this->aimAngle, WHITE);
 }
 
 void BonusEnemy::update(std::pair<float, float> pos, HitBox target) {
@@ -43,7 +43,7 @@ void BonusEnemy::attack(HitBox target) {
 
     // Fire two shots: one offset left, one offset right
     float offset = 15.0f;
-    Projectile::projectiles.push_back(Projectile(this->position.first + 15, this->position.second + 15, 1));
-    Projectile::projectiles.push_back(Projectile(this->position.first + 15, this->position.second + 15, 1));
+    Projectile::projectiles.push_back(Projectile(this->position.first + 15, this->position.second + 15, angleToPlayer - offset, 1));
+    Projectile::projectiles.push_back(Projectile(this->position.first + 15, this->position.second + 15, angleToPlayer + offset, 1));
     PlaySound(SoundManager::shoot);
 }
