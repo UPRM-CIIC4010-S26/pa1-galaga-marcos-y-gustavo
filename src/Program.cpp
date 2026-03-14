@@ -36,6 +36,9 @@ void Program::Update() {
 
     if (!startup && !paused && !gameOver && pauseFrames <= 0) {
         score += Enemy::ManageEnemies(player->hitBox);
+        if (score > highScore) {
+            highScore = score;
+        }
         StdEnemy::attackReset();
         ManageEnemyRespawns();
         player->update();
@@ -78,6 +81,8 @@ void Program::Draw() {
     
     std::string s = "Score: " + std::to_string(score);
     DrawText(s.c_str(), 10, 10, 24, WHITE);
+    std::string hs = "High Score: " + std::to_string(highScore);
+    DrawText(hs.c_str(), 10, 40, 24, WHITE);
 
     if (pauseFrames <= 0 && !gameOver) player->draw();
     for (Animation& a : Animation::animations) a.draw();
